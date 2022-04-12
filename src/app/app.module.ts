@@ -17,7 +17,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import { UserAuthComponent } from './user-auth/user-auth.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ShowcaseDataComponent } from './showcase-data/showcase-data.component';
-import { DialogDataExampleDialog } from './showcase-data/showcase-data.component'
+import { DialogDataExampleDialog } from './showcase-data/showcase-data.component';
+import { AdminViewComponent } from './admin-view/admin-view.component'
 
 const routes: Routes = [{ path: 'login', component: UserAuthComponent }, 
 { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -30,7 +31,8 @@ const routes: Routes = [{ path: 'login', component: UserAuthComponent },
     UserAuthComponent,
     NavBarComponent,
     ShowcaseDataComponent,
-    DialogDataExampleDialog
+    DialogDataExampleDialog,
+    AdminViewComponent
   ],
   imports: [
     BrowserModule,
