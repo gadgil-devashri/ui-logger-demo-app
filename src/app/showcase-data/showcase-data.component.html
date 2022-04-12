@@ -1,0 +1,15 @@
+<div>
+  <mat-grid-list cols="3" rowHeight="1.5:1">
+    <mat-grid-tile *ngFor="let chunk of displayData">
+      <mat-card class="data-card">
+        <mat-card-title-group>
+          <mat-card-title>{{chunk.name}}</mat-card-title>
+          <mat-card-subtitle *ngIf="!chunk.isAlcoholic">{{category}}</mat-card-subtitle>
+          <img mat-card-lg-image [src]="chunk.img">
+        </mat-card-title-group>
+        <mat-card-content><button mat-raised-button color="accent" (click)="openDialog(chunk)">Know more</button>  </mat-card-content>
+      </mat-card>
+    </mat-grid-tile> 
+  </mat-grid-list>
+
+</div>

@@ -1,0 +1,30 @@
+<mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>
+        <form [formGroup]="userAuthForm" (ngSubmit)="onSubmit()">
+
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label for="username">Username</mat-label>
+                    <input matInput id="username" type="text" formControlName="username" required>
+                </mat-form-field>
+        
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label for="password">Password</mat-label>
+                    <input matInput id="password" type="text" formControlName="password" required>
+                </mat-form-field> 
+        
+            </div>  
+            <div class="logBtn">
+                <button mat-raised-button color="primary" type="submit">Login</button>    
+            </div>
+            
+        </form>
+
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+</mat-grid-list>
+
+

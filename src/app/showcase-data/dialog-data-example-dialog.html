@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>{{data.name}}</h2>
+<div mat-dialog-content class="mat-typography">
+    <h3>Ingredients</h3>
+    <div *ngFor="let item of data.ingredient">{{item}} </div>
+    <br>
+    <div>
+        <h3>Recipe</h3>
+        <p>{{data.recipe}}</p>
+    </div> 
+</div>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
