@@ -14,6 +14,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatIconModule} from '@angular/material/icon';
 import { UserAuthComponent } from './user-auth/user-auth.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ShowcaseDataComponent } from './showcase-data/showcase-data.component';
@@ -22,7 +23,8 @@ import { AdminViewComponent } from './admin-view/admin-view.component'
 
 const routes: Routes = [{ path: 'login', component: UserAuthComponent }, 
 { path: '', redirectTo: '/login', pathMatch: 'full' },
-{ path: 'showcase-data', component: ShowcaseDataComponent }
+{ path: 'showcase-data', component: ShowcaseDataComponent },
+{ path: 'admin-view', component: AdminViewComponent }
 ]
 
 @NgModule({
@@ -46,7 +48,8 @@ const routes: Routes = [{ path: 'login', component: UserAuthComponent },
     MatGridListModule,
     MatCardModule,
     MatDialogModule,
-    MatChipsModule
+    MatChipsModule,
+    MatIconModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

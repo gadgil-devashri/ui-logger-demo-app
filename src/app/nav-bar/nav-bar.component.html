@@ -1,3 +1,10 @@
 <mat-toolbar color="primary">
     <span>{{title}}</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon home-icon" aria-label="Example icon-button with home icon">
+        <mat-icon routerLink="/showcase-data">home</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon dashboard-icon" aria-label="Example icon-button with dashboard icon">
+        <mat-icon routerLink="/admin-view">dashboard</mat-icon>
+    </button>
 </mat-toolbar>

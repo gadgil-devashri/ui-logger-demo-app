@@ -1,7 +1,7 @@
 <h2 mat-dialog-title>{{data.name}}</h2>
 <div mat-dialog-content class="mat-typography">
     <h3>Ingredients</h3>
-    <mat-chip-list aria-label="Fish selection">
+    <mat-chip-list aria-label="ingredients">
       <mat-chip color="primary" selected *ngFor="let item of data.ingredient">{{item}}</mat-chip>
     </mat-chip-list>
     <br>
@@ -13,11 +13,3 @@
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Close</button>
 </mat-dialog-actions>
-
-
-<!-- <mat-chip-list aria-label="Fish selection">
-  <mat-chip>One fish</mat-chip>
-  <mat-chip>Two fish</mat-chip>
-  <mat-chip color="primary" selected>Primary fish</mat-chip>
-  <mat-chip color="accent" selected>Accent fish</mat-chip>
-</mat-chip-list> -->
