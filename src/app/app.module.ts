@@ -13,6 +13,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatChipsModule} from '@angular/material/chips';
 import { UserAuthComponent } from './user-auth/user-auth.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ShowcaseDataComponent } from './showcase-data/showcase-data.component';
@@ -42,7 +43,8 @@ const routes: Routes = [{ path: 'login', component: UserAuthComponent },
     MatButtonModule,
     MatGridListModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatChipsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
