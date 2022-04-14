@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
+// import { LoggerWrapper } from '../../logger-package'
+// import LoggerWrapper from '../../logger-package'
 
 @Component({
   selector: 'app-user-auth',
@@ -17,7 +19,31 @@ export class UserAuthComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,private datePipe: DatePipe, private router:Router) { }
 
   ngOnInit(): void {
-  }
+  // Logger init
+  /* LoggerWrapper.init({
+    appId: 'ui-logger-demo',
+    currentSession: 'test',
+    advnaced: false,
+    eventType: 'FUN_DRINKS',
+    eventSubType: 'LIST_OF_DRINKS'
+  })
+  LoggerWrapper.info({
+    level: 'info',
+    appId: 'ui-logger-demo',
+    eventType: 'FUN_DRINKS',
+    eventSubType: 'LIST_OF_DRINKS',
+    eventSource: {
+      component: 'user-auth.component',
+      subComponent: 'user-authentication-module',
+      stepName: "user trying to login",
+      businessCapability: "logger",
+      businessFunctionality: "log trace"
+    },
+    eventAttributes: {
+     url: 'www.uncc.edu'
+    }
+  })*/
+  } 
 
   onSubmit(): void {
     // userAuthForm data here
