@@ -1,9 +1,38 @@
-<mat-grid-list cols="3" rowHeight="2:1">
-    <mat-grid-tile>1</mat-grid-tile>
-    <mat-grid-tile>
         <mat-spinner *ngIf="!isDataReady"></mat-spinner>
-        <h1 *ngIf="isDataReady">Data Ready</h1>
-    </mat-grid-tile>
-    <mat-grid-tile>3</mat-grid-tile>
-</mat-grid-list>
+        <table *ngIf="isDataReady" mat-table [dataSource]="logs" class="mat-elevation-z8">
+
+            <!-- Application Column -->
+            <ng-container matColumnDef="Application">
+              <th mat-header-cell *matHeaderCellDef> Application </th>
+              <td mat-cell *matCellDef="let element"> {{element.logEvent.eventSource.businessCapability}} </td>
+            </ng-container>
+          
+            <!-- Component Column -->
+            <ng-container matColumnDef="Component">
+              <th mat-header-cell *matHeaderCellDef> Component </th>
+              <td mat-cell *matCellDef="let element"> {{element.logEvent.eventSource.component}} </td>
+            </ng-container>
+          
+            <!-- Event status Column -->
+            <ng-container matColumnDef="Status">
+              <th mat-header-cell *matHeaderCellDef>Status</th>
+              <td mat-cell *matCellDef="let element"> {{element.logEvent.eventStatus[0]}} </td>
+            </ng-container>
+          
+            <!-- Description Column -->
+            <ng-container matColumnDef="Description">
+              <th mat-header-cell *matHeaderCellDef> Description </th>
+              <td mat-cell *matCellDef="let element"> {{element.logEvent.eventPayload.response}} </td>
+            </ng-container>
+
+            <!-- Timestamp Column -->
+            <ng-container matColumnDef="Timestamp">
+                <th mat-header-cell *matHeaderCellDef> Timestamp </th>
+                <td mat-cell *matCellDef="let element"> {{element['@timestamp']}} </td>
+              </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
 

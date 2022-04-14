@@ -16,6 +16,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatTableModule} from '@angular/material/table';
 import { UserAuthComponent } from './user-auth/user-auth.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ShowcaseDataComponent } from './showcase-data/showcase-data.component';
@@ -52,7 +53,8 @@ const routes: Routes = [{ path: 'login', component: UserAuthComponent },
     MatDialogModule,
     MatChipsModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTableModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

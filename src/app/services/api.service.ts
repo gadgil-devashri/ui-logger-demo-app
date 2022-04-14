@@ -13,7 +13,7 @@ export class ApiService {
 
   public get(options?: any) 
   { 
-    return this.http.get(this.api_endpoint + '/todos', options); 
+    return this.http.get(this.api_endpoint + '/get-logs', options); 
   } 
     
   public post(url: string, data: any, options?: any) 

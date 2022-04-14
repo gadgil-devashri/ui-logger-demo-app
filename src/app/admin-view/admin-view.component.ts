@@ -9,6 +9,7 @@ import { ApiService } from '../services/api.service';
 export class AdminViewComponent implements OnInit {
   isDataReady : boolean = false; 
   logs: any;
+  displayedColumns: string[] = [];
   
 
   constructor(private utility : ApiService) { }
@@ -16,6 +17,7 @@ export class AdminViewComponent implements OnInit {
   ngOnInit(): void {
     // api call
     this.getLogs();
+    this.displayedColumns = ['Application', 'Component', 'Status','Description', 'Timestamp'];
   }
 
   getLogs(){
