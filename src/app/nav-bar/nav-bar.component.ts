@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Constants } from '../config/constants'
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  title:string = 'Fun Drinks'
+  title:string = Constants.title;
 
   constructor() { }
 

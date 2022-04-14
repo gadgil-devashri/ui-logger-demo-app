@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router'
+import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -15,6 +15,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { UserAuthComponent } from './user-auth/user-auth.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ShowcaseDataComponent } from './showcase-data/showcase-data.component';
@@ -41,6 +42,7 @@ const routes: Routes = [{ path: 'login', component: UserAuthComponent },
     BrowserAnimationsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
+    HttpClientModule,
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
@@ -49,7 +51,8 @@ const routes: Routes = [{ path: 'login', component: UserAuthComponent },
     MatCardModule,
     MatDialogModule,
     MatChipsModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
