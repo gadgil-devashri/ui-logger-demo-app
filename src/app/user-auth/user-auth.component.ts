@@ -48,7 +48,7 @@ export class UserAuthComponent implements OnInit {
     }
     else {
       console.error('User authentication failed');
-      // Info level logger 
+      // error level logger 
       LoggerWrapper.error({
         level: 'error',
         appId: 'ui-logger-demo',
