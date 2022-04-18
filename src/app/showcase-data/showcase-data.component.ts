@@ -17,7 +17,7 @@ export class ShowcaseDataComponent implements OnInit {
   constructor(public dialog: MatDialog) { 
     // assign data to be displayed
     this.displayData = DRINKS;
-    this.displayData = [];
+    //this.displayData = [];
     this.category = 'Non Alcoholic'
   }
 
