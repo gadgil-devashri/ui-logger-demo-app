@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Constants } from '../config/constants';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 
 @Injectable({
@@ -13,7 +13,9 @@ export class ApiService {
 
   public get(options?: any) 
   { 
-    return this.http.get(this.api_endpoint + '/get-logs', options); 
+    let parameters = options;
+    let queryParams = new HttpParams({ fromObject: parameters }); 
+    return this.http.get(this.api_endpoint + '/get-logs',{params:queryParams}); 
   } 
     
   public post(url: string, data: any, options?: any) 

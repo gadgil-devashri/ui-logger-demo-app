@@ -1,38 +1,98 @@
-        <mat-spinner *ngIf="!isDataReady"></mat-spinner>
-        <table *ngIf="isDataReady" mat-table [dataSource]="logs" class="mat-elevation-z8">
+<mat-grid-list cols="12" rowHeight = "1:1">
+  <mat-grid-tile [colspan]="12" [rowspan]="1" *ngIf="isDataReady">
+      
+        <mat-form-field class="filter-param" appearance="fill">
+          <mat-label>Event type</mat-label>
+          <input matInput placeholder="Ex. Fun Drinks" [(ngModel)]="eventType">
+        </mat-form-field>
 
-            <!-- Application Column -->
-            <ng-container matColumnDef="Application">
-              <th mat-header-cell *matHeaderCellDef> Application </th>
-              <td mat-cell *matCellDef="let element"> {{element.logEvent.eventSource.businessCapability}} </td>
-            </ng-container>
-          
-            <!-- Component Column -->
-            <ng-container matColumnDef="Component">
-              <th mat-header-cell *matHeaderCellDef> Component </th>
-              <td mat-cell *matCellDef="let element"> {{element.logEvent.eventSource.component}} </td>
-            </ng-container>
-          
-            <!-- Event status Column -->
-            <ng-container matColumnDef="Status">
-              <th mat-header-cell *matHeaderCellDef>Status</th>
-              <td mat-cell *matCellDef="let element"> {{element.logEvent.eventStatus[0]}} </td>
-            </ng-container>
-          
-            <!-- Description Column -->
-            <ng-container matColumnDef="Description">
-              <th mat-header-cell *matHeaderCellDef> Description </th>
-              <td mat-cell *matCellDef="let element"> {{element.logEvent.eventPayload.response}} </td>
-            </ng-container>
+        <mat-form-field class="filter-param" appearance="fill">
+          <mat-label>Event subtype</mat-label>
+          <input matInput placeholder="Ex. user-uuth" [(ngModel)]="eventSubtype">
+        </mat-form-field>
 
-            <!-- Timestamp Column -->
-            <ng-container matColumnDef="Timestamp">
-                <th mat-header-cell *matHeaderCellDef> Timestamp </th>
-                <td mat-cell *matCellDef="let element"> {{element['@timestamp']}} </td>
-              </ng-container>
-          
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
+        <mat-form-field class="filter-param" appearance="fill">
+          <mat-label>Status</mat-label>
+          <mat-select [formControl]="status" single>
+            <mat-select-trigger>
+              {{status.value ? status.value : ''}}
+            </mat-select-trigger>
+            <mat-option *ngFor="let status of statusList" [value]="status">{{status}}</mat-option>
+          </mat-select>
+        </mat-form-field> 
 
+        <mat-form-field class="filter-param" appearance="fill">
+          <mat-label>Timestamp</mat-label>
+          <mat-date-range-input
+            [formGroup]="dateRange"
+            [rangePicker]="dateRangePicker"
+            [comparisonStart]="dateRange.value.start"
+            [comparisonEnd]="dateRange.value.end">
+            <input matStartDate placeholder="Start date" formControlName="start">
+            <input matEndDate placeholder="End date" formControlName="end">
+          </mat-date-range-input>
+          <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="dateRangePicker"></mat-datepicker-toggle>
+          <mat-date-range-picker #dateRangePicker></mat-date-range-picker>
+        </mat-form-field>
 
+        <button mat-raised-button color="primary" (click)="onFilterLogs()">Filter Logs</button>
+
+      
+    
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
+
+  <mat-grid-tile *ngIf="!isDataReady" [colspan]="10" [rowspan]="1">
+    <mat-spinner *ngIf="!isDataReady"></mat-spinner>
+  </mat-grid-tile>
+
+  <mat-grid-tile *ngIf="isDataReady" [colspan]="10" [rowspan]="10">
+    
+    <table *ngIf="isDataReady" mat-table [dataSource]="logs" class="mat-elevation-z8">
+
+      <!--Event type -->
+      <ng-container matColumnDef="Event type">
+        <th mat-header-cell *matHeaderCellDef>Event type</th>
+        <td mat-cell *matCellDef="let element"> {{element.eventHeader.eventType}} </td>
+      </ng-container>
+
+      <!-- Event subType -->
+      <ng-container matColumnDef="Event subType">
+        <th mat-header-cell *matHeaderCellDef>Event subType</th>
+        <td mat-cell *matCellDef="let element"> {{element.eventHeader.eventSubType}} </td>
+      </ng-container>
+
+      <!-- Business capability -->
+      <ng-container matColumnDef="Business capability">
+        <th mat-header-cell *matHeaderCellDef> Business capability </th>
+        <td mat-cell *matCellDef="let element"> {{element.eventSource.businessCapability}} </td>
+      </ng-container>
+    
+      <!-- Component Column -->
+      <ng-container matColumnDef="Component">
+        <th mat-header-cell *matHeaderCellDef> Component </th>
+        <td mat-cell *matCellDef="let element"> {{element.eventSource.component}} </td>
+      </ng-container>
+    
+      <!-- Event status Column -->
+      <ng-container matColumnDef="Status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let element"> {{element.eventStatus}} </td>
+      </ng-container>
+    
+      <!-- Timestamp Column -->
+      <ng-container matColumnDef="Timestamp">
+          <th mat-header-cell *matHeaderCellDef> Timestamp </th>
+          <td mat-cell *matCellDef="let element"> {{element['@timestamp']}} </td>
+        </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    
+      
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
+</mat-grid-list>
