@@ -1,4 +1,6 @@
-<div>
+<mat-spinner *ngIf="displayData.length == 0"></mat-spinner>
+
+<div *ngIf="displayData.length > 0">
   <mat-grid-list cols="3" rowHeight="1.5:1">
     <mat-grid-tile *ngFor="let chunk of displayData">
       <mat-card class="data-card">

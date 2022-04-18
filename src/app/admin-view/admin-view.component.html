@@ -43,11 +43,11 @@
   </mat-grid-tile>
   <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
 
-  <mat-grid-tile *ngIf="!isDataReady" [colspan]="10" [rowspan]="1">
+  <mat-grid-tile *ngIf="!isDataReady" [colspan]="15" [rowspan]="1">
     <mat-spinner *ngIf="!isDataReady"></mat-spinner>
   </mat-grid-tile>
 
-  <mat-grid-tile *ngIf="isDataReady" [colspan]="10" [rowspan]="10">
+  <mat-grid-tile *ngIf="isDataReady" [colspan]="10" [rowspan]="20">
     
     <table *ngIf="isDataReady" mat-table [dataSource]="logs" class="mat-elevation-z8">
 

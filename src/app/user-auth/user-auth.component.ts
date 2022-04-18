@@ -31,13 +31,13 @@ export class UserAuthComponent implements OnInit {
         level: 'info',
         appId: 'ui-logger-demo',
         eventType: 'FUN_DRINKS',
-        eventSubType: 'LIST_OF_DRINKS',
+        eventSubType: 'USER_AUTH',
         eventSource: {
           component: 'user-auth.component',
-          subComponent: 'user-auth',
+          subComponent: 'user-auth.component.ts',
           stepName: "user logged in successfully",
           businessCapability: "login",
-          businessFunctionality: "auth-login"
+          businessFunctionality: "user-auth-login"
         },
         eventAttributes: {
           // Add custom attributes events
@@ -53,13 +53,13 @@ export class UserAuthComponent implements OnInit {
         level: 'error',
         appId: 'ui-logger-demo',
         eventType: 'FUN_DRINKS',
-        eventSubType: 'LIST_OF_DRINKS',
+        eventSubType: 'USER_AUTH',
         eventSource: {
           component: 'user-auth.component',
-          subComponent: 'user-auth',
+          subComponent: 'user-auth.component.ts',
           stepName: "User authentication failed",
           businessCapability: "login",
-          businessFunctionality: "auth-login"
+          businessFunctionality: "user-auth-login"
         },
         eventAttributes: {
           // Add custom attributes events

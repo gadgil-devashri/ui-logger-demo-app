@@ -16,24 +16,24 @@ export class AppComponent implements OnInit {
       currentSession: 'test',
       advnaced: false,
       eventType: 'FUN_DRINKS',
-      eventSubType: 'LIST_OF_DRINKS'
+      eventSubType: 'APP_INIT'
     })
     // Info level logger 
     LoggerWrapper.info({
       level: 'info',
       appId: 'ui-logger-demo',
       eventType: 'FUN_DRINKS',
-      eventSubType: 'LIST_OF_DRINKS',
+      eventSubType: 'APP_INIT',
       eventSource: {
         component: 'app.component',
-        subComponent: 'app.component.html',
-        stepName: "Angular app loadded successfully",
-        businessCapability: "display login",
-        businessFunctionality: "display login"
+        subComponent: 'app.component.ts',
+        stepName: "Angular app initialized",
+        businessCapability: "app load",
+        businessFunctionality: "app load init"
       },
       eventAttributes: {
         // Add custom attributes events
-       url: 'http://localhost:4200/login'
+       url: 'http://localhost:4200/'
       }
     })
   }
