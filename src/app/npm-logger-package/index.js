@@ -16,7 +16,7 @@ const getDeviceName = (mediaObj, defaultDevice) => {
 }
 
 // REST API endpoint URL
-const defaultServiceEndpoint = 'http://localhost:3000/ui-event-logging'
+const defaultServiceEndpoint = 'http://localhost:3001/ui-event-logging'
 
 // GET session values from the browser
 // currentSession = {session_id: 'session_id', user_name: 'user_name', device_id: 'device_id'}
@@ -168,4 +168,4 @@ export function LoggerWrapper() {
   return loggingObj
 }
 
-// export LoggerWrapper()
+export default LoggerWrapper()
