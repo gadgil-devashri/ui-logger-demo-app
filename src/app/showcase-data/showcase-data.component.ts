@@ -28,7 +28,7 @@ export class ShowcaseDataComponent implements OnInit {
         level: 'info',
         appId: 'ui-logger-demo',
         eventType: 'FUN_DRINKS',
-        eventSubType: 'SHOWCASE_DATA',
+        eventSubType: 'ANGULAR_APP',
         eventSource: {
           component: 'showcase-data.component',
           subComponent: 'showcase-data.component.ts',
@@ -48,7 +48,7 @@ export class ShowcaseDataComponent implements OnInit {
         level: 'error',
         appId: 'ui-logger-demo',
         eventType: 'FUN_DRINKS',
-        eventSubType: 'SHOWCASE_DATA',
+        eventSubType: 'ANGULAR_APP',
         eventSource: {
           component: 'showcase-data.component',
           subComponent: 'showcase-data.component.ts',

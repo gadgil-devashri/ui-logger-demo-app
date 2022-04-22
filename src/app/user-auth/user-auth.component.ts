@@ -31,7 +31,7 @@ export class UserAuthComponent implements OnInit {
         level: 'info',
         appId: 'ui-logger-demo',
         eventType: 'FUN_DRINKS',
-        eventSubType: 'USER_AUTH',
+        eventSubType: 'ANGULAR_APP',
         eventSource: {
           component: 'user-auth.component',
           subComponent: 'user-auth.component.ts',
@@ -53,7 +53,7 @@ export class UserAuthComponent implements OnInit {
         level: 'error',
         appId: 'ui-logger-demo',
         eventType: 'FUN_DRINKS',
-        eventSubType: 'USER_AUTH',
+        eventSubType: 'ANGULAR_APP',
         eventSource: {
           component: 'user-auth.component',
           subComponent: 'user-auth.component.ts',

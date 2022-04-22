@@ -16,14 +16,14 @@ export class AppComponent implements OnInit {
       currentSession: 'test',
       advnaced: false,
       eventType: 'FUN_DRINKS',
-      eventSubType: 'APP_INIT'
+      eventSubType: 'ANGULAR_APP'
     })
     // Info level logger 
     LoggerWrapper.info({
       level: 'info',
       appId: 'ui-logger-demo',
       eventType: 'FUN_DRINKS',
-      eventSubType: 'APP_INIT',
+      eventSubType: 'ANGULAR_APP',
       eventSource: {
         component: 'app.component',
         subComponent: 'app.component.ts',
