@@ -22,7 +22,7 @@ export class AdminViewComponent implements OnInit {
   displayedColumns: string[] = [];
   filterObj :any = {};
   dateRange: FormGroup;
-  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   dataSource = new MatTableDataSource<Log>();
   
   
@@ -45,10 +45,7 @@ export class AdminViewComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    if(this.paginator)
-    {
       this.dataSource.paginator = this.paginator;
-    }
     
   }
 
@@ -56,10 +53,9 @@ export class AdminViewComponent implements OnInit {
     this.utility.get(options).subscribe(data => {
       this.logs = data;
       this.dataSource = new MatTableDataSource<Log>(this.logs);
+      this.ngAfterViewInit();
       console.log(this.dataSource.data);
       this.isDataReady = true;
-      console.log(this.paginator)
-     
     });
   }
 
