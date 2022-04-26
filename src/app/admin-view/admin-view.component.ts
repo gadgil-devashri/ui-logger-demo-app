@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import {FormGroup, FormControl} from '@angular/forms';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
+import { Log } from '../logs-data/log';
+
 
 @Component({
   selector: 'app-admin-view',
@@ -18,6 +22,8 @@ export class AdminViewComponent implements OnInit {
   displayedColumns: string[] = [];
   filterObj :any = {};
   dateRange: FormGroup;
+  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  dataSource = new MatTableDataSource<Log>();
   
   
 
@@ -38,11 +44,22 @@ export class AdminViewComponent implements OnInit {
     this.displayedColumns = ['Event type','Event subType','Business capability', 'Component', 'Status', 'Timestamp'];
   }
 
+  ngAfterViewInit() {
+    if(this.paginator)
+    {
+      this.dataSource.paginator = this.paginator;
+    }
+    
+  }
+
   getLogs(options?:any){
     this.utility.get(options).subscribe(data => {
       this.logs = data;
-      console.log(this.logs);
+      this.dataSource = new MatTableDataSource<Log>(this.logs);
+      console.log(this.dataSource.data);
       this.isDataReady = true;
+      console.log(this.paginator)
+     
     });
   }
 
@@ -63,6 +80,7 @@ export class AdminViewComponent implements OnInit {
     console.log(this.filterObj);
     this.isDataReady = false;
     this.logs = [];
+    this.dataSource = new MatTableDataSource<Log>();
     this.getLogs(this.filterObj);
   }
 

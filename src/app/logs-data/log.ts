@@ -1,4 +1,4 @@
-/* export interface Log {
+export interface Log {
     
         _id : number;
         logEvent: {
@@ -36,4 +36,4 @@
         "@timestamp": string,
         "@clientIPAddress": string
       
-} */
+}
