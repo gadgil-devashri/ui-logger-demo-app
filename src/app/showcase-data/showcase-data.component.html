@@ -1,4 +1,13 @@
-<mat-spinner *ngIf="displayData.length == 0"></mat-spinner>
+<div *ngIf="displayData.length == 0">
+  <mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>
+      <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+  </mat-grid-list>
+</div>
+
 
 <div *ngIf="displayData.length > 0">
   <mat-grid-list cols="3" rowHeight="1.5:1">
